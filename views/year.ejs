@@ -1,0 +1,16 @@
+<html>
+  <body>
+    <ul>
+       <ol>
+      <% sightings.forEach(function(sighting,index){ %>
+        <li> <a href= "/sightings/<%=sighting.YEAR%>"><%=sighting.YEAR%> </li>
+        <ul><%=sighting.STATE%></ul>
+          <% Object.entries(sighting).forEach(([key,value]) =>{ if(key
+          !=='OBSERVED'){ %>
+            <a href="/newPage/?sortby=<%=key.toLowerCase()%>"><%= key %> </a><br>        
+          <%} }) %>
+      <% }) %>
+      </ol>
+    </ul>
+  </body>
+</html>
